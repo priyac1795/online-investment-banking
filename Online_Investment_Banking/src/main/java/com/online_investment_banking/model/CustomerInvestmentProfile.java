@@ -8,30 +8,27 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
-import lombok.NonNull;
 
 @Data
 @Entity
-@Table(name = "financial_advisor")
-public class FinancialAdvisor {
+@Table(name = "customerInvestment")
+public class CustomerInvestmentProfile {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "first_name")
-	private String firstName;
+	@Column(name = "name")
+	private String name;
 	
-	@Column(name = "last_name")
-	private String lastName;
+	@Column(name = "age")
+	private String age;
 	
-	@Column(name = "email_id")
-	private String emailId;
+	@Column(name = "annual_income")
+	private String annualIncome;
 
-	@Column(name = "mobile")
-	private String mobileNo;
+	@Column(name = "amt_for_investment")
+	private String amtForInvestment;
 
-	@Column(name = "branch")
-	private String branchNo;
 
 }

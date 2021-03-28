@@ -38,12 +38,16 @@ public class FinancialAdvisorService {
     	financialAdvisor.setFirstName(financialAdvisorDetails.getFirstName());
     	financialAdvisor.setLastName(financialAdvisorDetails.getLastName());
     	financialAdvisor.setEmailId(financialAdvisorDetails.getEmailId());
-    	financialAdvisor.setMobileNumber(financialAdvisorDetails.getMobileNumber());
-    	financialAdvisor.setBranchNumber(financialAdvisorDetails.getBranchNumber());
+    	financialAdvisor.setMobileNo(financialAdvisorDetails.getMobileNo());
+    	financialAdvisor.setBranchNo(financialAdvisorDetails.getBranchNo());
     	
     	FinancialAdvisor updatedFinancialAdvisor = financialAdvisorRepo.save(financialAdvisor);	
     	
 		return updatedFinancialAdvisor;
+    }
+    
+    public void deleteFinancialAdvisor(long fid) {
+    	 financialAdvisorRepo.deleteById(fid);;
     }
     
     
