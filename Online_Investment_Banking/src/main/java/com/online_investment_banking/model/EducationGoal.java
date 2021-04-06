@@ -5,17 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "education_goal")
+@PersistenceContext
+@Table(name = "education_goal2")
 public class EducationGoal {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+   //@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(name = "name")
@@ -28,7 +32,7 @@ public class EducationGoal {
 	private String relationship;
 
 	@Column(name = "school_name")
-	private String schoolName;
+	private String schoolName;	
 	
 	@Column(name = "annual_fee")
 	private String annualFee;
@@ -40,8 +44,11 @@ public class EducationGoal {
 	private String totAmtForInvest;
 	
 	@Column(name = "amt_for_invest")
-	private String amtForInvest;
+	private String amtToInvest;
 	
 	@Column(name = "balance")
 	private String balance;
+	
+	@ManyToOne
+	private CustomerInvestmentProfile customerInfo;
 }

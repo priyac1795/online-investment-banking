@@ -1,5 +1,7 @@
 package com.online_investment_banking.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class CustomerInvestmentProfileService {
 	public CustomerInvestmentProfile createCustomer(CustomerInvestmentProfile customerInvestmentProfile) {
 		
 		return custInvestProfileRepo.save(customerInvestmentProfile);
+	}
+
+	public List<CustomerInvestmentProfile> getAllCustomerInfo(){
+		return custInvestProfileRepo.findAll();
 	}
 
 }
