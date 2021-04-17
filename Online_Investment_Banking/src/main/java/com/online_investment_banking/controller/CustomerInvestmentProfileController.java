@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.online_investment_banking.dto.CustomerInvestmentProfileDTO;
+import com.online_investment_banking.dto.CustomerProfileForMediumRiskDTO;
 import com.online_investment_banking.model.CustomerInvestmentProfile;
 import com.online_investment_banking.model.FinancialAdvisor;
+import com.online_investment_banking.model.MediumRiskGoal;
 import com.online_investment_banking.service.CustomerInvestmentProfileService;
+import com.sun.istack.NotNull;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -23,10 +27,20 @@ public class CustomerInvestmentProfileController {
 	private CustomerInvestmentProfileService custInvestservice;
 	
 	@PostMapping("/createCustomer")
-	public CustomerInvestmentProfile createCustomer(@RequestBody CustomerInvestmentProfile customerInvestmentProfile)
+	public CustomerInvestmentProfile createCustomer(@NotNull@RequestBody CustomerInvestmentProfileDTO customerInvestmentProfileDTO)
+	
 	{
-		return custInvestservice.createCustomer(customerInvestmentProfile);
+		
+		return custInvestservice.createCustomer(customerInvestmentProfileDTO);
 	}
 
+	@PostMapping("/createCustomerForMedRisk")
+	public MediumRiskGoal createCustomerForMedRisk(@RequestBody MediumRiskGoal mediumRiskgoal)
+	
+	{
+		
+		return custInvestservice.createCustomerForMedRisk(mediumRiskgoal);
+	}
 	
 }
+ 

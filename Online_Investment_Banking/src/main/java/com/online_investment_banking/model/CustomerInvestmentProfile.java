@@ -13,6 +13,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.Data;
 
 @Data
@@ -36,8 +39,10 @@ public class CustomerInvestmentProfile {
 	@Column(name = "amt_for_investment")
 	private String amtForInvestment;
 	
-	@OneToMany(mappedBy = "customerInfo", cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customer_id", nullable = false, updatable = false)
 	private List<EducationGoal> goalInfo;
+	
 
 }
 	

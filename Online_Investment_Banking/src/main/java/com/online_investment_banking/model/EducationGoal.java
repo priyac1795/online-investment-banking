@@ -2,6 +2,7 @@ package com.online_investment_banking.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,7 +20,7 @@ import lombok.Data;
 public class EducationGoal {
 
 	@Id
-   //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(name = "name")
@@ -49,6 +50,20 @@ public class EducationGoal {
 	@Column(name = "balance")
 	private String balance;
 	
-	@ManyToOne
+	@Column(name = "savings_for")
+    private String savingsFor;
+	
+	@Column(name = "estimated_cost")
+	private String estimatedCost;
+	
+	@Column(name = "monthly_savings")
+	private String monthlySavings;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "customer_id", insertable = false, updatable = false) 
 	private CustomerInvestmentProfile customerInfo;
+
+	
+
+	
 }
