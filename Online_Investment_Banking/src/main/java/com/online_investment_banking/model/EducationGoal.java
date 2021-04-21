@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
@@ -21,12 +23,12 @@ public class EducationGoal {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long lowRiskId;
 	
-	@Column(name = "name")
+	@Column(name = "beneficiary_name")
 	private String name;
 	
-	@Column(name = "age")
+	@Column(name = "beneficiary_age")
 	private String age;
 	
 	@Column(name = "relationship")
@@ -38,7 +40,7 @@ public class EducationGoal {
 	@Column(name = "annual_fee")
 	private String annualFee;
 	
-	@Column(name = "percent_to_play")
+	@Column(name = "percent_to_pay")
 	private String percentToPay;
 	
 	@Column(name = "tot_amt_investment")
@@ -60,7 +62,7 @@ public class EducationGoal {
 	private String monthlySavings;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "customer_id", insertable = false, updatable = false) 
+	@JoinColumn(name = "customer_id", insertable = false, updatable = false, nullable = true) 
 	private CustomerInvestmentProfile customerInfo;
 
 	

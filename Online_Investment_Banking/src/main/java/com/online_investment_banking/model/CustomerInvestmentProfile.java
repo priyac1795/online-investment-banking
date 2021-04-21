@@ -16,11 +16,13 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "customerInvestment2")
+@Table(name = "customer_investment3")
 public class CustomerInvestmentProfile {
 	
 	@Id
@@ -40,6 +42,7 @@ public class CustomerInvestmentProfile {
 	private String amtForInvestment;
 	
 	@OneToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
 	@JoinColumn(name = "customer_id", nullable = false, updatable = false)
 	private List<EducationGoal> goalInfo;
 	

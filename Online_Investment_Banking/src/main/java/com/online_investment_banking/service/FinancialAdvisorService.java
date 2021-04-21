@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.online_investment_banking.model.EducationGoal;
 import com.online_investment_banking.model.FinancialAdvisor;
 import com.online_investment_banking.repository.FinancialAdvisorRepository;
 
@@ -50,5 +51,12 @@ public class FinancialAdvisorService {
     	 financialAdvisorRepo.deleteById(fid);;
     }
     
-    
+   public List<Long> findAllLowRiskIds()
+	{
+    	return financialAdvisorRepo.findAllLowRiskIds();
+	}
+   public String getLowRiskReport(long custId) {
+		
+	   return financialAdvisorRepo.getLowRiskReport(custId);
+	}
 }

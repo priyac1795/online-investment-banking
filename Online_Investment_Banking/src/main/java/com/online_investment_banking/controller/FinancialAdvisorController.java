@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.online_investment_banking.model.EducationGoal;
 import com.online_investment_banking.model.FinancialAdvisor;
 import com.online_investment_banking.service.FinancialAdvisorService;
 
@@ -56,5 +58,17 @@ public class FinancialAdvisorController {
     public void deleteFinancialAdvisor(@PathVariable long fid){
     	financialAdvisorService.deleteFinancialAdvisor(fid);
     }
+	
+	@GetMapping("/getAllLowRiskIds")
+	public List<Long> getAllLowRiskIds()
+	{
+		return financialAdvisorService.findAllLowRiskIds();
+	}
+	
+	@GetMapping("getLowRiskReport/{custId}")
+	public String getLowRiskReport(@PathVariable long custId) {
+		
+		return financialAdvisorService.getLowRiskReport(custId);
+	}
 	
 }
