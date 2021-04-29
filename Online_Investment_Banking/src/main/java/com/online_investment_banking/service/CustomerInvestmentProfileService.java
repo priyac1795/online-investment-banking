@@ -16,8 +16,10 @@ import com.online_investment_banking.dto.MediumRiskGoalDTO;
 import com.online_investment_banking.model.CustomerInvestmentProfile;
 import com.online_investment_banking.model.EducationGoal;
 import com.online_investment_banking.model.FinancialAdvisor;
+import com.online_investment_banking.model.HighRiskGoal;
 import com.online_investment_banking.model.MediumRiskGoal;
 import com.online_investment_banking.repository.CustomerInvestmentProfileRepository;
+import com.online_investment_banking.repository.HighRiskGoalRepository;
 import com.online_investment_banking.repository.MediumRiskGoalRepository;
 
 
@@ -29,6 +31,9 @@ public class CustomerInvestmentProfileService {
 	
 	@Autowired
 	MediumRiskGoalRepository mediumRiskGoalRepo;
+	
+	@Autowired
+	HighRiskGoalRepository highRiskGoalRepo;
 	
 	public CustomerInvestmentProfile createCustomer(CustomerInvestmentProfileDTO customerInvestmentProfileDTO) {
 		
@@ -55,7 +60,7 @@ public class CustomerInvestmentProfileService {
 			educationGoalEntity.setAnnualFee(eduGoal.getAnnualFee());	
 			educationGoalEntity.setPercentToPay(eduGoal.getPercentToPay());
 			educationGoalEntity.setTotAmtForInvest(eduGoal.getTotAmtForInvest());
-			educationGoalEntity.setAmtToInvest(eduGoal.getAmtToInvest());
+			educationGoalEntity.setAmtToInvestEduGoal(eduGoal.getAmtToInvestEduGoal());
 			educationGoalEntity.setBalance(eduGoal.getBalance());
 			educationGoalEntity.setSavingsFor(eduGoal.getSavingsFor());
 			educationGoalEntity.setEstimatedCost(eduGoal.getEstimatedCost());
@@ -79,37 +84,12 @@ public class CustomerInvestmentProfileService {
 
 	public MediumRiskGoal createCustomerForMedRisk(MediumRiskGoal mediumRiskgoal) {
 		
-		return mediumRiskGoalRepo.save(mediumRiskgoal);
+		return mediumRiskGoalRepo.save(mediumRiskgoal);	
 		
-		/*CustomerInvestmentProfile customerInvestEntity = new CustomerInvestmentProfile();
+	}
+    public HighRiskGoal createCustomerForHighRisk(HighRiskGoal highRiskgoal) {
 		
-		List<MediumRiskGoal> medGoalInfoList = new ArrayList<>();
-		List<MediumRiskGoalDTO> customerMedRiskGoalInfoList = customerProfileForMediumRiskDTO.getMedRiskGoalInfo();
-		
-		
-		customerInvestEntity.setCustomerName(customerProfileForMediumRiskDTO.getCustomerName());
-		customerInvestEntity.setCustomerAge(customerProfileForMediumRiskDTO.getCustomerAge());
-		customerInvestEntity.setAnnualIncome(customerProfileForMediumRiskDTO.getAnnualIncome());
-		
-		
-		if(!CollectionUtils.isEmpty(customerMedRiskGoalInfoList)) {
-			
-			for(MediumRiskGoalDTO medRiskGoal :customerMedRiskGoalInfoList){
-				
-				MediumRiskGoal mediumRiskGoalEntity = new MediumRiskGoal();
-				mediumRiskGoalEntity.setTaxPercent(medRiskGoal.getTaxPercent());
-				mediumRiskGoalEntity.setEmployerPercent(medRiskGoal.getEmployerPercent());
-				mediumRiskGoalEntity.setCustomerPercent(medRiskGoal.getCustomerPercent());
-				mediumRiskGoalEntity.setDisabilitySavings(medRiskGoal.getDisabilitySavings());
-				
-				medGoalInfoList.add(mediumRiskGoalEntity);
-			}
-		}
-		customerInvestEntity.setMedRiskGoalInfo(medGoalInfoList);
-		return custInvestProfileRepo.save(customerInvestEntity);*/
-		
-		
-		
+		return highRiskGoalRepo.save(highRiskgoal);	
 		
 	}
 

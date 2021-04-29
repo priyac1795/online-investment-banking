@@ -31,7 +31,7 @@ public class EducationGoalDTO {
 	
 	private String totAmtForInvest;
 
-	private String amtToInvest;
+	private String amtToInvestEduGoal;
 	
 	private String balance;
 	

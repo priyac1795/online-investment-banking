@@ -18,7 +18,7 @@ import lombok.Data;
 @Data
 @Entity
 @PersistenceContext
-@Table(name = "education_goal2")
+@Table(name = "education_goal3")
 public class EducationGoal {
 
 	@Id
@@ -46,8 +46,8 @@ public class EducationGoal {
 	@Column(name = "tot_amt_investment")
 	private String totAmtForInvest;
 	
-	@Column(name = "amt_for_invest")
-	private String amtToInvest;
+	@Column(name = "amt_for_invest_eduGoal")
+	private String amtToInvestEduGoal;
 	
 	@Column(name = "balance")
 	private String balance;

@@ -64,11 +64,31 @@ public class FinancialAdvisorController {
 	{
 		return financialAdvisorService.findAllLowRiskIds();
 	}
+	@GetMapping("/getAllMedRiskIds")
+	public List<Long> getAllMedRiskIds()
+	{
+		return financialAdvisorService.findAllMedRiskIds();
+	}
+	@GetMapping("/getAllHighRiskIds")
+	public List<Long> getAllHighRiskIds()
+	{
+		return financialAdvisorService.findAllHighRiskIds();
+	}
 	
 	@GetMapping("getLowRiskReport/{custId}")
-	public String getLowRiskReport(@PathVariable long custId) {
+	public List<String> getLowRiskReport(@PathVariable long custId) {
 		
 		return financialAdvisorService.getLowRiskReport(custId);
 	}
-	
+	@GetMapping("getMedRiskReport/{custId}")
+	public List<String> getMedRiskReport(@PathVariable long custId) {
+		
+		return financialAdvisorService.getMedRiskReport(custId);
+	}
+
+	@GetMapping("getHighRiskReport/{custId}")
+	public List<String> getHighRiskReport(@PathVariable long custId) {
+		
+		return financialAdvisorService.getHighRiskReport(custId);
+	}
 }

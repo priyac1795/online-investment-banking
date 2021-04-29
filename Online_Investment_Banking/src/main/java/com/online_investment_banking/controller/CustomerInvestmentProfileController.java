@@ -14,6 +14,7 @@ import com.online_investment_banking.dto.CustomerInvestmentProfileDTO;
 import com.online_investment_banking.dto.CustomerProfileForMediumRiskDTO;
 import com.online_investment_banking.model.CustomerInvestmentProfile;
 import com.online_investment_banking.model.FinancialAdvisor;
+import com.online_investment_banking.model.HighRiskGoal;
 import com.online_investment_banking.model.MediumRiskGoal;
 import com.online_investment_banking.service.CustomerInvestmentProfileService;
 import com.sun.istack.NotNull;
@@ -40,6 +41,14 @@ public class CustomerInvestmentProfileController {
 	{
 		
 		return custInvestservice.createCustomerForMedRisk(mediumRiskgoal);
+	}
+	
+	@PostMapping("/createCustomerForHighRisk")
+	public HighRiskGoal createCustomerForHighRisk(@RequestBody HighRiskGoal highRiskgoal)
+	
+	{
+		
+		return custInvestservice.createCustomerForHighRisk(highRiskgoal);
 	}
 	
 }
